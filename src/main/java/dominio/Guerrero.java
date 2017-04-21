@@ -1,5 +1,9 @@
 package dominio;
-
+/**
+ * Es uno de las distintas  Casta que existen, por lo cual reciben
+ *  mismos metodos ( habilidad1,habilidad2 ) y atributos de la 
+ *  clase abstracta Casta.
+ */
 public class Guerrero extends Casta {
 
 	public Guerrero(double prob_crit, double evasion, double daño_crit) {
@@ -17,7 +21,11 @@ public class Guerrero extends Casta {
 		habilidadesCasta[2] = "Ignorar Defensa";
 	}
 
-	// Ataque Doble
+	//
+	/**
+	 * Primera habilidad de la Casta "Ataque Doble": El daño que le causa al atacado
+	 * es igual al ataque del caster multiplicado por 2
+	 */
 	public boolean habilidad1(Personaje caster, Peleable atacado) { 
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -27,7 +35,11 @@ public class Guerrero extends Casta {
 		return false;
 	}
 	
-	// Aumentar Defensa
+	// 
+	/**
+	 * Primera habilidad de la Casta "Aumentar Defensa": Aumenta los puntos de defensa del caster equivalente
+	 * a su magia
+	 */
 	public boolean habilidad2(Personaje caster, Peleable atacado) { 
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);

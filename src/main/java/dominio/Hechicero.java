@@ -1,5 +1,9 @@
 package dominio;
-
+/**
+ * Es uno de las distintas  Casta que existen, por lo cual reciben
+ *  mismos metodos ( habilidad1,habilidad2 ) y atributos de la 
+ *  clase abstracta Casta.
+ */
 public class Hechicero extends Casta {
 
 	public Hechicero(double prob_crit, double evasion, double daño_crit) {
@@ -16,7 +20,11 @@ public class Hechicero extends Casta {
 		habilidadesCasta[2] = "Robar Energia y Salud";
 	}
 
-	// Bola de Fuego
+	// 
+	/**
+	 * Primera habilidad de la Casta "Bola de Fuego": El daño que causa es igual a los puntos
+	 * de magia del caster multiplicado por 1.5
+	 */
 	public boolean habilidad1(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -26,7 +34,11 @@ public class Hechicero extends Casta {
 		return false;
 	}
 
-	// Curar Aliado
+	// 
+	/**
+	 * Segunda habilidad de la Casta "Curar Aliado": el Caster cura al aliado con la cantidad de puntos
+	 * de magia que tiene
+	 */	
 	public boolean habilidad2(Personaje caster, Peleable aliado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);

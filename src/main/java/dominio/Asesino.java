@@ -1,5 +1,9 @@
 package dominio;
-
+/**
+ * Es uno de las distintas  Casta que existen, por lo cual reciben
+ *  mismos metodos ( habilidad1,habilidad2 ) y atributos de la 
+ *  clase abstracta Casta.
+ */
 public class Asesino extends Casta {
 
 	public Asesino(double prob_crit, double evasion, double daño_crit) {
@@ -16,7 +20,10 @@ public class Asesino extends Casta {
 		habilidadesCasta[2] = "Robar";
 	}
 
-	// Golpe Crítico
+	/**
+	 * Primera habilidad de la Casta "Golpe Crítico": El daño que le causa al atacado es igual a los
+	 * puntos de ataque del caster mas el daño critico del mismo
+	 */
 	public boolean habilidad1(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -26,7 +33,10 @@ public class Asesino extends Casta {
 		return false;
 	}
 
-	// Aumentar Evasion
+	/**
+	 * Primera habilidad de la Casta "Aumentar Evasion": Aumenta en 0,15 la probabilidad de evitar daño
+	 * hasta un maximo de 0,5
+	 */
 	public boolean habilidad2(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);

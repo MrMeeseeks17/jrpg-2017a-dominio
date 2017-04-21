@@ -1,7 +1,8 @@
 package dominio;
-
 import java.util.LinkedList;
-
+/**
+ * Esta clase contiene una lista enlazada de aliados/clanes con su nombre correspondiente
+ */
 public class Alianza {
 
 	String nombre;
@@ -11,7 +12,9 @@ public class Alianza {
 		this.nombre = nombre;
 		this.aliados = new LinkedList <Personaje>();
 	}
-
+	/**
+	 * Devuelve una lista de aliados de una alianza especifica
+	 */
 	public LinkedList<Personaje> getAliados() {
 		return aliados;
 	}
@@ -19,7 +22,9 @@ public class Alianza {
 	public void setAliados(LinkedList<Personaje> aliados) {
 		this.aliados = aliados;
 	}
-
+	/**
+	 * Devuelve el nombre de la alianza
+	 */
 	public String obtenerNombre(){
 		return nombre;
 	}

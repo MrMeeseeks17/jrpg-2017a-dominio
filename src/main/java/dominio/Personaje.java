@@ -2,6 +2,11 @@ package dominio;
 
 import java.io.Serializable;
 
+/**
+ * Clase abstracta que hereda a Elfo, Humano y Orco.
+ * Esta clase define las estadísticas,id,niveles, clanes ,posición del personaje
+ */
+
 public abstract class Personaje implements Peleable, Serializable {
 
 	protected int salud;
@@ -49,7 +54,13 @@ public abstract class Personaje implements Peleable, Serializable {
 		for (int i = 2; i < 101; i++)
 			Personaje.tablaDeNiveles[i] = Personaje.tablaDeNiveles[i - 1] + 50;
 	}
-
+	 /**
+	  * Constructor. Asigna un valor y crea un objeto Personaje.
+	  * Recibe valor del atributo nombre , Casta e id
+	  * @param nombre Nombre del personaje
+	  * @param Casta Clasificacion de personaje
+	  * @param id  Identificador del Personaje
+	  */
 	public Personaje(String nombre, Casta casta, int id) {
 		this.nombre = nombre;
 		this.casta = casta;
@@ -237,7 +248,12 @@ public abstract class Personaje implements Peleable, Serializable {
 	public void setEnergiaTope(int energiaTope) {
 		this.energiaTope = energiaTope;
 	}
-
+	
+	 /**
+	  * Metodo atacar: Calcula el daño recibido al Objeto de Entrada.
+	  * @return Valor entero del daño que recibe el objeto de Entrada Peleable
+	  * @param Objeto Peleable que recibe el ataque.
+	  */
 	public int atacar(Peleable atacado) {
 		if (salud == 0)
 			return 0;
@@ -292,7 +308,11 @@ public abstract class Personaje implements Peleable, Serializable {
 	public boolean estaVivo() {
 		return salud > 0;
 	}
-
+	 /**
+	  * Metodo atacar: Calcula el daño que recibe el  Objeto que llama al metodo.
+	  * @return Valor Entero del daño que recibe el objeto llamador.
+	  * @param Valor Entero. Cantidad de daño recibido.
+	  */
 	public int serAtacado(int daño) {
 		if (MyRandom.nextDouble() >= this.getCasta().getProbabilidadEvitarDaño()) {
 			daño -= this.defensa;

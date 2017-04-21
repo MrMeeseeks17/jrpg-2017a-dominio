@@ -1,5 +1,8 @@
 package dominio;
-
+/**
+ * Esta clase crea un NPC (NonPlayableCharacter) de dificultad aleatoria y a mayor dificultad sus
+ * atributos son mayores 
+ */
 public class NonPlayableCharacter implements Peleable {
 
 	private int salud;
@@ -37,7 +40,9 @@ public class NonPlayableCharacter implements Peleable {
 
 		}
 	}
-
+	/**
+	 * Otorga una experiencia equivalente a su nivel multiplicado por 30
+	 */
 	public int otorgarExp() {
 		return this.nivel * 30;
 	}
@@ -45,7 +50,9 @@ public class NonPlayableCharacter implements Peleable {
 	public int getFuerza() {
 		return fuerza;
 	}
-
+	/**
+	 * Setea el atributo fuerza del objeto llamador con el entero fuerza pasado por parametro
+	 */
 	public void setFuerza(int fuerza) {
 		this.fuerza = fuerza;
 	}

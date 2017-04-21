@@ -1,5 +1,9 @@
 package dominio;
-
+/**
+ * Es uno de los distintos personajes que existen, por lo cual reciben
+ *  mismos metodos ( habilidadRaza1,habilidadRaza2 ) y atributos de la 
+ *  clase abstracta Personaje.
+ */
 public class Elfo extends Personaje {
 
 	public Elfo(String nombre, Casta casta, int id) {
@@ -26,7 +30,10 @@ public class Elfo extends Personaje {
 		habilidadesRaza[1] = "Ataque Bosque";
 	}
 
-	// Golpe Level
+	/**
+	 * Primera habilidad del personaje "Golpe Level": El daño que causa es igual a su nivel 
+	 * multiplicado por 10 + la fuerza del personaje
+	 */
 	public boolean habilidadRaza1(Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			this.setEnergia(this.getEnergia() - 10);
@@ -36,7 +43,10 @@ public class Elfo extends Personaje {
 		return false;
 	}
 
-	// Ataque Bosque
+	/**
+	 * Primera habilidad del personaje "Ataque Bosque": ataca a un objetivo
+	 * con un daño equivalente a su magia
+	 */
 	public boolean habilidadRaza2(Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			this.setEnergia(this.getEnergia() - 10);

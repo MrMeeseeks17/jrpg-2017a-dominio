@@ -1,5 +1,9 @@
 package dominio;
-
+/**
+ * Es uno de los distintos personajes que existen, por lo cual reciben
+ *  mismos metodos ( habilidadRaza1,habilidadRaza2 ) y atributos de la 
+ *  clase abstracta Personaje.
+ */
 public class Orco extends Personaje {
 
 	public Orco(String nombre, Casta casta, int id) {
@@ -24,7 +28,10 @@ public class Orco extends Personaje {
 		habilidadesRaza[1] = "Mordisco de Vida";
 	}
 
-	// Golpe Defensa
+	/**
+	 * Primera habilidad del personaje "Golpe Defensa": Duplica su defensa actual al
+	 * recibir el siguiente golpe.
+	 */
 	public boolean habilidadRaza1(Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			this.setEnergia(this.getEnergia() - 10);
@@ -34,7 +41,10 @@ public class Orco extends Personaje {
 		return false;
 	}
 
-	// Mordisco de Vida
+	/**
+	 * Segunda habilidad del personaje "Mordisco de Vida": Ataca a su objetivo y luego de calcular 
+	 * su daño cura exactamente la cantidad de vida que recibe el personaje atacado
+	 */
 	public boolean habilidadRaza2(Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			this.setEnergia(this.getEnergia() - 10);
