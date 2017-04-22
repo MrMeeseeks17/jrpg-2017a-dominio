@@ -1,4 +1,7 @@
 package dominio;
+/**
+ * Interfaz en la que se especifican los métodos a implementar por las clases NPC y personaje
+ */
 
 public interface Peleable {
 	public int serAtacado(int daño);

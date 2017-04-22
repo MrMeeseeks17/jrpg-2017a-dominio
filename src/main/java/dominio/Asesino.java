@@ -22,7 +22,7 @@ public class Asesino extends Casta {
 
 	/**
 	 * Primera habilidad de la Casta "Golpe Crítico": El daño que le causa al atacado es igual a los
-	 * puntos de ataque del caster mas el daño critico del mismo
+	 * puntos de ataque del caster incrementados por el porcentaje de golpe critico del mismo
 	 */
 	public boolean habilidad1(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
@@ -34,8 +34,8 @@ public class Asesino extends Casta {
 	}
 
 	/**
-	 * Primera habilidad de la Casta "Aumentar Evasion": Aumenta en 0,15 la probabilidad de evitar daño
-	 * hasta un maximo de 0,5
+	 * Primera habilidad de la Casta "Aumentar Evasion": Aumenta en 15% la probabilidad de evitar daño
+	 * siendo el maximo total 50%
 	 */
 	public boolean habilidad2(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {

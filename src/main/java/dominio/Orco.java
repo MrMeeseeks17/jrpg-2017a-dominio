@@ -1,6 +1,6 @@
 package dominio;
 /**
- * Es uno de los distintos personajes que existen, por lo cual reciben
+ * Es una de las distintas razas de personajes que existen, por lo cual reciben
  *  mismos metodos ( habilidadRaza1,habilidadRaza2 ) y atributos de la 
  *  clase abstracta Personaje.
  */
@@ -42,8 +42,8 @@ public class Orco extends Personaje {
 	}
 
 	/**
-	 * Segunda habilidad del personaje "Mordisco de Vida": Ataca a su objetivo y luego de calcular 
-	 * su daño cura exactamente la cantidad de vida que recibe el personaje atacado
+	 * Segunda habilidad del personaje "Mordisco de Vida": Ataca a su objetivo y luego recupera  
+	 * tantos puntos de salud como puntos de daño le causó a su oponente
 	 */
 	public boolean habilidadRaza2(Peleable atacado) {
 		if (this.getEnergia() > 10) {

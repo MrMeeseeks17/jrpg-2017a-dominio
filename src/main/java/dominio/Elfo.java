@@ -1,6 +1,6 @@
 package dominio;
 /**
- * Es uno de los distintos personajes que existen, por lo cual reciben
+ * Es una de las distintas razas de personajes que existen, por lo cual reciben
  *  mismos metodos ( habilidadRaza1,habilidadRaza2 ) y atributos de la 
  *  clase abstracta Personaje.
  */

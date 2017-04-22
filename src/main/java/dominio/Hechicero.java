@@ -23,7 +23,7 @@ public class Hechicero extends Casta {
 	// 
 	/**
 	 * Primera habilidad de la Casta "Bola de Fuego": El daño que causa es igual a los puntos
-	 * de magia del caster multiplicado por 1.5
+	 * de magia del caster (invocador de la habilidad) multiplicado por 1.5
 	 */
 	public boolean habilidad1(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
@@ -36,8 +36,8 @@ public class Hechicero extends Casta {
 
 	// 
 	/**
-	 * Segunda habilidad de la Casta "Curar Aliado": el Caster cura al aliado con la cantidad de puntos
-	 * de magia que tiene
+	 * Segunda habilidad de la Casta "Curar Aliado": el Caster restaura los puntos de salud de un aliado como tantos puntos
+	 * de magia dispone
 	 */	
 	public boolean habilidad2(Personaje caster, Peleable aliado) {
 		if (caster.getEnergia() > 10) {

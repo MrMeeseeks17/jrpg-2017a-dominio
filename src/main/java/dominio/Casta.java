@@ -40,7 +40,10 @@ public abstract class Casta implements Serializable {
 	public String getNombreCasta() {
 		return this.nombreCasta;
 	}
-
+	/**
+	 * Devuelve las habilidades correspondientes a la Casta en cuestion
+	 * @return array de String en en que se encuentran las habilidades mencionadas
+	 */
 	public String[] getHabilidadesCasta() {
 		return habilidadesCasta;
 	}
