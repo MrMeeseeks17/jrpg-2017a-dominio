@@ -1,8 +1,8 @@
 package dominio;
+
 /**
- * Es uno de las distintas  Casta que existen, por lo cual reciben
- *  mismos metodos ( habilidad1,habilidad2 ) y atributos de la 
- *  clase abstracta Casta.
+ * Es uno de las distintas Casta que existen, por lo cual reciben mismos metodos
+ * ( habilidad1,habilidad2 ) y atributos de la clase abstracta Casta.
  */
 public class Hechicero extends Casta {
 
@@ -20,10 +20,15 @@ public class Hechicero extends Casta {
 		habilidadesCasta[2] = "Robar Energia y Salud";
 	}
 
-	// 
+	//
 	/**
-	 * Primera habilidad de la Casta "Bola de Fuego": El daño que causa es igual a los puntos
-	 * de magia del caster (invocador de la habilidad) multiplicado por 1.5
+	 * Primera habilidad de la Casta "Bola de Fuego":En caso de que el invocador
+	 * poseea energía, la disminuye en 10 (el costo de realizar la habilidad)
+	 * luego el daño que causa es igual a los puntos de magia del caster
+	 * (invocador de la habilidad) multiplicado por 1.5
+	 * 
+	 * @return Devuelve verdadero en caso de causarle daño al objetivo o falso
+	 *         en caso contrario
 	 */
 	public boolean habilidad1(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
@@ -34,11 +39,16 @@ public class Hechicero extends Casta {
 		return false;
 	}
 
-	// 
+	//
 	/**
-	 * Segunda habilidad de la Casta "Curar Aliado": el Caster restaura los puntos de salud de un aliado como tantos puntos
-	 * de magia dispone
-	 */	
+	 * Segunda habilidad de la Casta "Curar Aliado":En caso de que el invocador
+	 * poseea energía, la disminuye en 10 (el costo de realizar la habilidad)
+	 * luego el caster restaura los puntos de salud de un aliado como tantos
+	 * puntos de magia disponga
+	 * 
+	 * @return Devuelve false en caso de no tener energía suficiente y verdadero
+	 *         en caso contrario
+	 */
 	public boolean habilidad2(Personaje caster, Peleable aliado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -50,7 +60,17 @@ public class Hechicero extends Casta {
 		return false;
 	}
 
-	// Robar Energia y Salud
+	/**
+	 * Tercera habilidad de la Casta "Robar Energia y Salud":En caso de que el
+	 * invocador poseea energía la disminuye en 10 (el costo de realizar la
+	 * habilidad) posteriormente disminuye tanto la energía como la salud del
+	 * atacado dependiendo de la defensa de este último y los puntos de magia
+	 * del caster. Luego incrementa sus atributos en cuantos puntos robo de los
+	 * atributos correspondientes del atacado
+	 * 
+	 * @return Devuelve false en caso de no poseer energía sufiencte y verdadero
+	 *         en caso contrario
+	 */
 	public boolean habilidad3(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);

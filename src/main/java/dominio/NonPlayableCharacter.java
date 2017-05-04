@@ -1,7 +1,8 @@
 package dominio;
+
 /**
- * Esta clase crea un NPC (NonPlayableCharacter) de dificultad aleatoria y a mayor dificultad sus
- * atributos son mayores 
+ * Esta clase crea un NPC (NonPlayableCharacter) de dificultad aleatoria y a
+ * mayor dificultad sus atributos son mayores
  */
 public class NonPlayableCharacter implements Peleable {
 
@@ -40,9 +41,7 @@ public class NonPlayableCharacter implements Peleable {
 
 		}
 	}
-	/**
-	 * Otorga una experiencia equivalente a su nivel multiplicado por 30
-	 */
+
 	public int otorgarExp() {
 		return this.nivel * 30;
 	}
@@ -50,8 +49,10 @@ public class NonPlayableCharacter implements Peleable {
 	public int getFuerza() {
 		return fuerza;
 	}
+
 	/**
-	 * Setea el atributo fuerza del objeto llamador con el entero fuerza pasado por parametro
+	 * Setea el atributo fuerza del objeto llamador con el entero fuerza pasado
+	 * por parametro
 	 */
 	public void setFuerza(int fuerza) {
 		this.fuerza = fuerza;
@@ -94,7 +95,8 @@ public class NonPlayableCharacter implements Peleable {
 	}
 
 	public int atacar(Peleable atacado) {
-		if (MyRandom.nextDouble() <= 0.15) {// los NPC tienen 15% de golpes criticos
+		if (MyRandom.nextDouble() <= 0.15) {// los NPC tienen 15% de golpes
+											// criticos
 			return atacado.serAtacado((int) (this.getAtaque() * 1.5));
 		} else
 			return atacado.serAtacado(this.getAtaque());
@@ -112,7 +114,8 @@ public class NonPlayableCharacter implements Peleable {
 		return 0;// esquivo el golpe
 	}
 
-	public void despuesDeTurno() { }
+	public void despuesDeTurno() {
+	}
 
 	public void ganarExperiencia(int exp) {
 

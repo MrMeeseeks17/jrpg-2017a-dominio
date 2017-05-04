@@ -1,8 +1,9 @@
 package dominio;
+
 /**
  * Es una de las distintas razas de personajes que existen, por lo cual reciben
- *  mismos metodos ( habilidadRaza1,habilidadRaza2 ) y atributos de la 
- *  clase abstracta Personaje.
+ * mismos metodos ( habilidadRaza1,habilidadRaza2 ) y atributos de la clase
+ * abstracta Personaje.
  */
 public class Orco extends Personaje {
 
@@ -29,8 +30,13 @@ public class Orco extends Personaje {
 	}
 
 	/**
-	 * Primera habilidad del personaje "Golpe Defensa": Duplica su defensa actual al
-	 * recibir el siguiente golpe.
+	 * Primera habilidad del personaje "Golpe Defensa":En caso de que el
+	 * invocador poseea energía, la disminuye en 10 (el costo de realizar la
+	 * habilidad) y luego ataca al objetivo, pero en vez de hacerlo con sus
+	 * puntos de ataque lo hace con el doble de sus puntos de defensa.
+	 * 
+	 * @return Devuelve verdadero en caso de tener energía suficiente y haberle
+	 *         causado daño al objetivo, y falso en caso contrario.
 	 */
 	public boolean habilidadRaza1(Peleable atacado) {
 		if (this.getEnergia() > 10) {
@@ -42,8 +48,13 @@ public class Orco extends Personaje {
 	}
 
 	/**
-	 * Segunda habilidad del personaje "Mordisco de Vida": Ataca a su objetivo y luego recupera  
-	 * tantos puntos de salud como puntos de daño le causó a su oponente
+	 * Segunda habilidad del personaje "Mordisco de Vida":En caso de que el
+	 * invocador poseea energía, la disminuye en 10 (el costo de realizar la
+	 * habilidad)y luego recupera tantos puntos de salud como puntos de daño le
+	 * causó a su oponente
+	 * 
+	 * @return Devuelve verdadero en caso de tener energía y haberle causado
+	 *         daño al objetivo, falso en caso contrario
 	 */
 	public boolean habilidadRaza2(Peleable atacado) {
 		if (this.getEnergia() > 10) {

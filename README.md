@@ -12,12 +12,9 @@
 
 ### Integrantes del equipo
 
-* Completar ([xxxx](https://github.com/xxxx))
-* Completar ([xxxx](https://github.com/xxxx))
-* Completar ([xxxx](https://github.com/xxxx))
-* Completar ([xxxx](https://github.com/xxxx))
-* Completar ([xxxx](https://github.com/xxxx))
-* Completar ([xxxx](https://github.com/xxxx))
+* Completar ([Espinola Hamm Carla ](https://github.com/EspHammCarla))
+* Completar ([Izaguirre Rodríguez Alan Joel](https://github.com/AlanIza96))
+* Completar ([Rey Juan Cruz](https://github.com/Jjuancruzrey))
 
 ## Sobre la tecnología
 

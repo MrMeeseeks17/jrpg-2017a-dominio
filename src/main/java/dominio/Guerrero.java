@@ -1,8 +1,8 @@
 package dominio;
+
 /**
- * Es uno de las distintas  Casta que existen, por lo cual reciben
- *  mismos metodos ( habilidad1,habilidad2 ) y atributos de la 
- *  clase abstracta Casta.
+ * Es uno de las distintas Casta que existen, por lo cual reciben mismos metodos
+ * ( habilidad1,habilidad2 ) y atributos de la clase abstracta Casta.
  */
 public class Guerrero extends Casta {
 
@@ -23,10 +23,15 @@ public class Guerrero extends Casta {
 
 	//
 	/**
-	 * Primera habilidad de la Casta "Ataque Doble": El daño que le causa al atacado
-	 * es igual al ataque del caster multiplicado por 2
+	 * Primera habilidad de la Casta "Ataque Doble":En caso de que el invocador
+	 * poseea energía, la disminuye en 10 (el costo de realizar la habilidad)
+	 * luego el daño que le causa al atacado es igual al ataque del caster
+	 * multiplicado por 2
+	 * 
+	 * @return Devuelve verdadero en caso de tener energía suficiente y de haber
+	 *         realizado daño al atacado, falso en caso contrario
 	 */
-	public boolean habilidad1(Personaje caster, Peleable atacado) { 
+	public boolean habilidad1(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
 			if (atacado.serAtacado(caster.ataque * 2) > 0)
@@ -34,13 +39,18 @@ public class Guerrero extends Casta {
 		}
 		return false;
 	}
-	
-	// 
+
+	//
 	/**
-	 * Primera habilidad de la Casta "Aumentar Defensa": Aumenta los puntos de defensa del caster equivalente
-	 * a su magia
+	 * Segunda habilidad de la Casta "Aumentar Defensa":En caso de que el
+	 * invocador poseea energía, la disminuye en 10 (el costo de realizar la
+	 * habilidad) luego aumenta los puntos de defensa del caster equivalente a
+	 * sus puntos de magia
+	 * 
+	 * @return Devuelve verdadero en caso de poder haber realizado la habilidad
+	 *         o falso en caso contrario
 	 */
-	public boolean habilidad2(Personaje caster, Peleable atacado) { 
+	public boolean habilidad2(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
 			caster.setDefensa(caster.getDefensa() + caster.magia);
@@ -49,8 +59,16 @@ public class Guerrero extends Casta {
 		return false;
 	}
 
-	// Ignorar Defensa
-	public boolean habilidad3(Personaje caster, Peleable atacado) { 
+	/**
+	 * Tercera habilidad de la Casta "Ignorar Defensa": En caso de que el
+	 * atacante poseea energía, la disminuye en 10 (el costo de realizar la
+	 * habilidad) y setea momenteneamente la defensa del objetivo a cero (0)
+	 * previo al ataque, posteriormente la vuelve a su valor original
+	 * 
+	 * @return Devuelve verdadero en caso de que el objetivo sufrió daño y falso
+	 *         en caso contrario
+	 */
+	public boolean habilidad3(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
 			if (atacado instanceof Personaje) {
