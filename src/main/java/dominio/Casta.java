@@ -18,9 +18,9 @@ private double probabilidadEvitarDaño;
  * ataque al hacer un daño crítico.*/
 private double dañoCritico;
 /**Contiene el nombre de la Casta.*/
-private String nombreCasta;
+protected String nombreCasta;
 /**Contiene el arreglo de habilidades de la Casta.*/
-private String[] habilidadesCasta;
+protected String[] habilidadesCasta;
 
 /**Constructor.*/
 public Casta() {

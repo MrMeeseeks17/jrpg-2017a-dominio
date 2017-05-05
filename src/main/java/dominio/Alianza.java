@@ -13,7 +13,7 @@ private LinkedList<Personaje> aliados;
 
 /** Constructor.
  * @param nom String con el nombre a asignar a la Alianza */
-public Alianza(final String nom) {
+public Alianza(String nom) {
 this.nombre = nom;
 this.aliados = new LinkedList<Personaje>();
 }

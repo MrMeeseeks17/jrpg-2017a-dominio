@@ -11,7 +11,7 @@ public class TestAtributos {
 	public void testIncrementarFuerza() {
 		Humano h = new Humano("Nicolas", new Guerrero(), 1);
 
-		Assert.assertTrue(h.getAtaque() == 22);
+		Assert.assertEquals(22, h.getAtaque());
 		h.AsignarPuntosSkills(10, 0, 0);
 		Assert.assertTrue(h.getAtaque() > 22);
 	}
@@ -19,8 +19,7 @@ public class TestAtributos {
 	@Test
 	public void testIncrementarDestreza() {
 		Humano h = new Humano("Nicolas", new Guerrero(), 1);
-
-		Assert.assertTrue(h.getDefensa() == 10);
+		Assert.assertEquals(10, h.getDefensa());
 		h.AsignarPuntosSkills(0, 10, 0);
 		Assert.assertTrue(h.getDefensa() > 10);
 	}
@@ -28,7 +27,7 @@ public class TestAtributos {
 	@Test
 	public void testIncrementarInteligencia() {
 		Humano h = new Humano("Nicolas", new Guerrero(), 1);
-		Assert.assertTrue(h.getMagia() == 15);
+		Assert.assertEquals(15, h.getMagia());
 		h.AsignarPuntosSkills(0, 0, 10);
 		Assert.assertTrue(h.getMagia() > 15);
 	}
