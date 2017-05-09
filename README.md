@@ -12,9 +12,9 @@
 
 ### Integrantes del equipo
 
-* Completar ([Espinola Hamm Carla ](https://github.com/EspHammCarla))
-* Completar ([Izaguirre Rodríguez Alan Joel](https://github.com/AlanIza96))
-* Completar ([Rey Juan Cruz](https://github.com/Jjuancruzrey))
+* Espinola Hamm Carla Sabrina ([EspHammCarla](https://github.com/EspHammCarla))
+* Izaguirre Rodríguez Alan Joel ([AlanIza96](https://github.com/AlanIza96))
+* Rey Juan Cruz ([jjuancruzrey](https://github.com/Jjuancruzrey))
 
 ## Sobre la tecnología
 
