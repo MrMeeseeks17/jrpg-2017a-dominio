@@ -22,8 +22,11 @@ public class TestAsesino {
 		Humano h2 = new Humano("Lautaro", new Hechicero(), 2);
 
 		Assert.assertEquals(105 , h2.getSalud());
-		h.habilidadCasta1(h2);
+		if(h.habilidadCasta1(h2)){
 			Assert.assertEquals(93 , h2.getSalud());
+		} else {
+			Assert.assertEquals(105 , h2.getSalud());
+		}
 	}
 	@Test
 	public void testCriticoFalso() {
@@ -31,9 +34,9 @@ public class TestAsesino {
 		Humano h2 = new Humano("Lautaro", new Hechicero(), 2);
 
 		Assert.assertEquals(105 , h2.getSalud());
-		h.setEnergia(0);
+		h.disminuirEnergia(h.getEnergia());;
 		h.habilidadCasta1(h2);
-			Assert.assertEquals(105, h2.getSalud());
+		Assert.assertEquals(105, h2.getSalud());
 	}
 	
 	@Test

@@ -17,8 +17,11 @@ public class TestElfo {
 		Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 		Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
 		Assert.assertEquals(100 , h.getSalud());
-		e.habilidadRaza1(h);
-			Assert.assertEquals(65 , h.getSalud());
+		if(e.habilidadRaza1(h)) {
+			Assert.assertEquals(65, h.getSalud());
+		} else {
+			Assert.assertEquals(100, h.getSalud());
+		}
 	}
 
 	@Test
@@ -26,7 +29,7 @@ public class TestElfo {
 		Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 		Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
 		Assert.assertEquals(100 , h.getSalud());
-		e.setEnergia(0);
+		e.disminuirEnergia(e.getEnergia());
 		e.habilidadRaza1(h);
 			Assert.assertEquals(100 , h.getSalud());
 	}
@@ -34,8 +37,11 @@ public class TestElfo {
 	public void testAtaqueBosqueTrue() {
 		Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 		Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
-		e.habilidadRaza2(h);
+		if(e.habilidadRaza2(h)) {
 			Assert.assertEquals(75 , h.getSalud());
+		} else {
+			Assert.assertEquals(100, h.getSalud());
+		}
 	}
 	
 	@Test
@@ -44,7 +50,7 @@ public class TestElfo {
 		Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
 
 		Assert.assertEquals(100 , h.getSalud());
-		e.setEnergia(0);
+		e.disminuirEnergia(e.getEnergia());
 		e.habilidadRaza2(h);
 			Assert.assertEquals(100 , h.getSalud());
 	}

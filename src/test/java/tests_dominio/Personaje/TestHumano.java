@@ -28,9 +28,14 @@ public class TestHumano {
 		Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 		Assert.assertEquals(100 ,h.getEnergia());
 		Assert.assertEquals(100 ,e.getSalud());
-		h.habilidadRaza2(e);
-			Assert.assertEquals(70 ,e.getSalud());
+		if(h.habilidadRaza2(e)) {
 			Assert.assertEquals(50 ,h.getEnergia());
+			Assert.assertEquals(70, e.getSalud());
+		} else {
+			Assert.assertEquals(90 ,h.getEnergia());
+			Assert.assertEquals(100, e.getSalud());
+			
+		}
 	}
 	
 	@Test
@@ -39,7 +44,7 @@ public class TestHumano {
 		Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 		Assert.assertEquals(100 ,h.getEnergia());
 		Assert.assertEquals(100 ,e.getSalud());
-		h.setEnergia(0);
+		h.disminuirEnergia(h.getEnergia());
 		h.habilidadRaza2(e);
 			Assert.assertEquals(100 ,e.getSalud());
 			Assert.assertEquals(0 ,h.getEnergia());

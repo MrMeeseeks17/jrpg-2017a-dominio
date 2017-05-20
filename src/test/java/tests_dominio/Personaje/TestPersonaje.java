@@ -98,35 +98,35 @@ public class TestPersonaje {
 		h.setNombre("Juanca2");
 		Assert.assertEquals(h.getNombre(), "Juanca2");
 	}
-	@Test
-	public void getSetIdPersonaje(){
-		Humano h = new Humano("Juanca", new Asesino(), 1);
-		Assert.assertEquals(h.getIdPersonaje(), 1);
-		h.setIdPersonaje(5);
-		Assert.assertEquals(h.getIdPersonaje(),5);
-	}
+//	@Test
+//	public void getSetIdPersonaje(){
+//		Humano h = new Humano("Juanca", new Asesino(), 1);
+//		Assert.assertEquals(h.getIdPersonaje(), 1);
+//		h.setIdPersonaje(5);
+//		Assert.assertEquals(h.getIdPersonaje(),5);
+//	}
 	
 	@Test
-	public void getSetSaludTope(){
+	public void getIncrementarSaludTope(){
 		Humano h = new Humano("Juanca", new Asesino(), 1);
 		Assert.assertEquals(h.getSaludTope(), 105);
-		h.setSaludTope(200);
+		h.incrementarSaludTope(200 - h.getSaludTope());
 		Assert.assertEquals(h.getSaludTope(),200);
 	}
 	
 	@Test
-	public void getSetEnergiaTope(){
+	public void getIncrementarEnergiaTope(){
 		Humano h = new Humano("Juanca", new Asesino(), 1);
 		Assert.assertEquals(h.getEnergiaTope(), 105);
-		h.setEnergiaTope(500);
+		h.incrementarEnergiaTope(500 - h.getEnergiaTope());
 		Assert.assertEquals(h.getEnergiaTope(),500);
 	}
 	
 	@Test
-	public void getSetExperiencia(){
+	public void getIncrementarExperiencia(){
 		Humano h = new Humano("Juanca", new Asesino(), 1);
 		Assert.assertEquals(h.getExperiencia(), 0);
-		h.setExperiencia(100);
+		h.incrementarExperiencia(100 - h.getExperiencia());
 		Assert.assertEquals(h.getExperiencia(),100);
 	}
 	
@@ -142,12 +142,9 @@ public class TestPersonaje {
 	@Test
 	public void RestablecerSaludTope(){
 		Humano h = new Humano("Juanca", new Asesino(), 1);
-		Humano h2 = new Humano("Carla", new Asesino(), 1);
 		Assert.assertEquals(h.getSalud(),105);
-		h2.habilidadCasta1(h);
-		h2.habilidadCasta1(h);
-		h2.habilidadCasta1(h);
-		Assert.assertEquals(h.getSalud(),84);
+		h.incrementarSalud(-70);
+		Assert.assertEquals(h.getSalud(),35);
 		h.restablecerSalud();
 		Assert.assertEquals(h.getSalud(),105);
 	}

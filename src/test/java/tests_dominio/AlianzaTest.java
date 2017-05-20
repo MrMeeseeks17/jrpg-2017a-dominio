@@ -47,15 +47,15 @@ public class AlianzaTest {
 		Assert.assertFalse(a1.getAliados().contains(h));
 	}
 	
-	@Test
-	public void setAliadosAlianzaTest() {
-		Alianza a1 = new Alianza("alianza");
-		Humano h = new Humano("Juan", new Guerrero(), 1);
-		a1.añadirPersonaje(h);
-		Alianza a2 = new Alianza("MrMesseks");
-		a2.setAliados(a1.getAliados());
-		Assert.assertTrue(a2.getAliados().contains(h));
-	}
+//	@Test
+//	public void setAliadosAlianzaTest() {
+//		Alianza a1 = new Alianza("alianza");
+//		Humano h = new Humano("Juan", new Guerrero(), 1);
+//		a1.añadirPersonaje(h);
+//		Alianza a2 = new Alianza("MrMesseks");
+//		a2.setAliados(a1.getAliados());
+//		Assert.assertTrue(a2.getAliados().contains(h));
+//	}
 	
 	
 	@Test

@@ -16,7 +16,8 @@ public class TestHechicero {
 		Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 
 		Assert.assertTrue(e.getSalud() == 100);
-		e.setSalud(65);
+		e.incrementarSalud(65 - e.getSalud());
+//		e.setSalud(65);
 		Assert.assertTrue(e.getSalud() == 65);
 		h.habilidadCasta2(e);
 		Assert.assertTrue(e.getSalud() > 65);
@@ -40,16 +41,30 @@ public class TestHechicero {
 		Elfo e = new Elfo("NicoElfo", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 
 		Assert.assertTrue(e.getSalud() == 100);
-		h.setSalud(50);
-		h.setEnergia(50);
+		//h.setSalud(50);
+		//h.setEnergia(50);
+		int enerHum = h.getEnergia();
+		int salHum = h.getSalud();
+		int salElf = e.getSalud();
+		
 		if (h.habilidadCasta3(e)) {
-			Assert.assertTrue(e.getSalud() < 100);
-			Assert.assertTrue(h.getEnergia() > 50);
-			Assert.assertTrue(h.getSalud() > 50);
+
+			Assert.assertTrue(e.getSalud() < salElf);
+			
+			if(h.getEnergia()==h.getEnergiaTope())
+				Assert.assertTrue(h.getEnergia() <= enerHum);
+			else
+				Assert.assertTrue(h.getEnergia() > enerHum);
+			
+			if(h.getSalud()==h.getSaludTope())
+				Assert.assertTrue(h.getSalud() <= salHum);
+			else
+				Assert.assertTrue(h.getSalud() > salHum);
+			
 		} else {
-			Assert.assertTrue(h.getSalud() == 50);
-			Assert.assertTrue(h.getEnergia() < 50);
-			Assert.assertTrue(e.getSalud() == 100);
+			Assert.assertTrue(h.getSalud() == salHum);
+			Assert.assertTrue(h.getEnergia() < enerHum);
+			Assert.assertTrue(e.getSalud() == salElf);
 		}
 	}
 }

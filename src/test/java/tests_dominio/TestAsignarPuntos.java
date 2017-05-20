@@ -30,9 +30,10 @@ public class TestAsignarPuntos {
 	@Test
 	public void testMasDe200Puntos() {
 		Humano h = new Humano("Nicolas", new Guerrero(), 1);
-		h.setFuerza(199);
-		h.setDestreza(199);
-		h.setInteligencia(199);
+		h.incrementarFuerza(199 - h.getFuerza());
+//		h.setFuerza(199);
+		h.incrementarDestreza(199 - h.getDestreza());
+		h.incrementarInteligencia(199 - h.getInteligencia());
 		h.AsignarPuntosSkills(2, 2, 2);
 
 		Assert.assertEquals(199, h.getFuerza());

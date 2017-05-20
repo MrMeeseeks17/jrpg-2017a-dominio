@@ -2,33 +2,33 @@ package dominio;
 
 /**
  * Interfaz en la que se especifican los métodos a implementar por las clases
- * NPC y Personaje
+ * NPC y Personaje.
  */
 
 public interface Peleable {
 
-public int serAtacado(int daño);
+    int serAtacado(int daño);
 
-public int getSalud();
+	int getSalud();
 
-public void despuesDeTurno();
+	void despuesDeTurno();
 
-public int atacar(Peleable atacado);
+	int atacar(Peleable atacado);
 
-public int otorgarExp();
+	int otorgarExp();
 
-public int getAtaque();
+	int getAtaque();
 
-public void setAtaque(int ataque);
+	void setAtaque(int ataque);
 
-public boolean estaVivo();
+	boolean estaVivo();
 
-public String getNombre();
+	String getNombre();
 
-boolean serAtacadoPorGerreroh3(final int ataqueRecibido);
+	boolean serAtacadoPorGuerreroh3(int ataqueRecibido);
 
-boolean serAsistidoPorHechicero(final int puntosCurados);
+	boolean serAsistidoPorHechicero(int puntosCurados);
 
-boolean serRobadoPorHechicero(final Personaje caster);
+	int[] serRobadoPorHechicero(Personaje caster);
 
 }

@@ -18,9 +18,9 @@ public class TestOrco {
 
 		Assert.assertTrue(h.getSalud() == 105);
 		if (o.habilidadRaza1(h))
-			Assert.assertTrue(h.getSalud() == 95);
+			Assert.assertEquals(95, h.getSalud());
 		else
-			Assert.assertTrue(o.getSalud() == 105);
+			Assert.assertEquals(105, h.getSalud());
 	}
 
 	@Test
@@ -29,7 +29,8 @@ public class TestOrco {
 		Orco o = new Orco("Nico", 100, 100, 80, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
 
 		Assert.assertTrue(h.getSalud() == 100);
-		o.setSalud(100);
+		o.incrementarSalud(100 - o.getSalud());
+//		o.setSalud(100);
 		if (o.habilidadRaza2(h)) {
 			Assert.assertEquals(40, h.getSalud());
 			Assert.assertTrue(o.getSalud() == 100);

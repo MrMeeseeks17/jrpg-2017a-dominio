@@ -7,7 +7,7 @@ import org.junit.Assert;
 
 public class TestEnemigosExperiencia {
 
-	@Test
+@Test
 	public void testPjvsNPC() {
 
 		Humano h = new Humano("Nicolas", new Guerrero(), 1);

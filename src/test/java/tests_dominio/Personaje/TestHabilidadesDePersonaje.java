@@ -25,8 +25,11 @@ public class TestHabilidadesDePersonaje {
 		 * Daño o sobre o2 = ((defensaDeOrc*2) - (DefensaDeO) ))
 		 * 	20 = ( (15*2) - 10))
 		*/
-		o.habilidadRaza1(o2);
+		if(o.habilidadRaza1(o2)) {
 			Assert.assertEquals(90, o2.getSalud());
+		} else {
+			Assert.assertEquals(110, o2.getSalud());
+		}
 	}
 	
 	@Test
@@ -35,7 +38,7 @@ public class TestHabilidadesDePersonaje {
 		Orco o2 = new Orco("Durotar", new Hechicero(), 2);
 		//La  defensa de un asesino es 15 ( defensa base 10 sumado 5 por ser asesino )
 		Assert.assertEquals(15 , o.getDefensa());
-		o.setEnergia(0);
+		o.disminuirEnergia(o.getEnergia());;
 		o.habilidadRaza1(o2);
 			Assert.assertEquals(110, o2.getSalud());
 	}
@@ -46,7 +49,7 @@ public class TestHabilidadesDePersonaje {
 	public void testHabilidad2RazaOrcoControlDaño() {
 		Orco o = new Orco("Thrall", new Guerrero(), 1);
 		Orco o2 = new Orco("Durotar", new Guerrero(), 2);
-		Orco o3 = new Orco("Durotar", new Hechicero(), 2);
+		//Orco o3 = new Orco("Durotar", new Hechicero(), 2);
 		//La  fuerza de una asesino orco es 10( fuerza base 10 + 5 por ser Guerrero )
 		/**La habilidad de raza 2 Orca "Mordisco de Vida" 
 		 * Absorbe vida equivalente al daño que causa equivalente a su fuerza como daño
@@ -54,10 +57,12 @@ public class TestHabilidadesDePersonaje {
 		 * Daño o sobre o2 = ((fuerza) - (DefensaDeO) ))
 		 * 	5 = ( (15) - 10))
 		*/
-		
 		//Comprobamos daño de habilidad y el lanzamiento de la habilidad:
-		o.habilidadRaza2(o2);
+		if(o.habilidadRaza2(o2)) {
 			Assert.assertEquals(105, o2.getSalud());
+		} else {
+			Assert.assertEquals(110, o2.getSalud());
+		}
 	}
 	
 
@@ -65,14 +70,17 @@ public class TestHabilidadesDePersonaje {
 	public void testHabilidad2RazaOrcoControlCuracionPositiva() {
 		Orco o = new Orco("Thrall", new Guerrero(), 1);
 		Orco o2 = new Orco("Durotar", new Guerrero(), 2);
-		Orco o3 = new Orco("Durotar", new Hechicero(), 2);
+		//Orco o3 = new Orco("Durotar", new Hechicero(), 2);
 		//La  fuerza de una asesino orco es 10( fuerza base 10 + 5 por ser Guerrero )
 		//Comprobamos daño de habilidad y el lanzamiento de la habilidad:
-		o.habilidadRaza2(o2);
-		o.setSalud(100);
-		//Comprobamos curacion
-		o2.habilidadRaza2(o);
+		o.incrementarSalud(-10);
+		if(o.habilidadRaza2(o2)) {
+			Assert.assertEquals(105, o.getSalud());
+			Assert.assertEquals(105, o2.getSalud());
+		} else {
+			Assert.assertEquals(100, o.getSalud());
 			Assert.assertEquals(110, o2.getSalud());
+		}
 	}
 	
 	
@@ -82,7 +90,8 @@ public class TestHabilidadesDePersonaje {
 		Orco o = new Orco("Thrall", new Guerrero(), 1);
 		Orco o3 = new Orco("Durotar", new Hechicero(), 2);
 		
-		o3.setSalud(80);
+		o3.incrementarSalud(80 - o3.getSalud());
+//		o3.setSalud(80);
 		//Comprobamos que si la defensa sea igual al daño , no golpee
 		Assert.assertFalse(o3.habilidadRaza2(o));
 	}
@@ -99,11 +108,16 @@ public class TestHabilidadesDePersonaje {
 		Elfo e2 = new Elfo("Elune", new Hechicero(), 2);
 		//La  defensa de un asesino es 15 ( defensa base 10 sumado 5 por ser asesino )
 		Assert.assertEquals(1, e.getNivel());
-		e.setNivel(5);
+		if(e.getNivel()!=5)
+			e.incrementarNivel(5 - e.getNivel());
+//		e.setNivel(5);
 		Assert.assertEquals(5, e.getNivel());
 
-		e.habilidadRaza1(e2);
+		if(e.habilidadRaza1(e2)) {
 			Assert.assertEquals(50, e2.getSalud());
+		} else {
+			Assert.assertEquals(100, e2.getSalud());
+		}
 	}
 	@Test
 	public void testHabilidad1RazaElfoFalse() {
@@ -111,9 +125,11 @@ public class TestHabilidadesDePersonaje {
 		Elfo e2 = new Elfo("Elune", new Hechicero(), 2);
 		//La  defensa de un asesino es 15 ( defensa base 10 sumado 5 por ser asesino )
 		Assert.assertEquals(1, e.getNivel());
-		e.setNivel(5);
+		if(e.getNivel()!=5)
+			e.incrementarNivel(5 - e.getNivel());
+//		e.setNivel(5);
 		Assert.assertEquals(5, e.getNivel());
-		e.setEnergia(0);
+		e.disminuirEnergia(e.getEnergia());
 		e.habilidadRaza1(e2);
 			Assert.assertEquals(100, e2.getSalud());
 	}
@@ -130,8 +146,11 @@ public class TestHabilidadesDePersonaje {
 		Assert.assertEquals(22, e.getMagia());
 
 		//daño = ataque-defensa = 22-15 = 7
-		e.habilidadRaza2(e2);
+		if(e.habilidadRaza2(e2)) {
 			Assert.assertEquals(93, e2.getSalud());
+		} else {
+			Assert.assertEquals(100, e2.getSalud());
+		}
 	}
 	
 	@Test
@@ -139,7 +158,7 @@ public class TestHabilidadesDePersonaje {
 		Elfo e = new Elfo("Elune", new Hechicero(), 1);
 		Elfo e2 = new Elfo("Illidan", new Asesino(), 2);
 		Assert.assertEquals(22, e.getMagia());
-		e.setEnergia(0);
+		e.disminuirEnergia(e.getEnergia());
 		e.habilidadRaza2(e2);
 			Assert.assertEquals(100, e2.getSalud());
 	}
@@ -155,11 +174,13 @@ public class TestHabilidadesDePersonaje {
 		Humano h2 = new Humano("Jaina", new Hechicero(), 2);
 		Assert.assertEquals(105, h.getEnergia());
 		//daño = ataque-defensa = (105/2) - defensa = (52) - 10 = 42
-		h.habilidadRaza2(h2);
-		Assert.assertEquals((105-42), h2.getSalud());
-		//controlo que la energia se reduzca a la mitad
-		Assert.assertEquals(15, h2.getAtaque());
-		Assert.assertEquals(52, h.getEnergia());
+		if(h.habilidadRaza2(h2)) {
+			Assert.assertEquals((105 - 42), h2.getSalud());
+			Assert.assertEquals(52, h.getEnergia());
+		} else {
+			Assert.assertEquals(105, h2.getSalud());
+			Assert.assertEquals(95, h.getEnergia());
+		}
 	}
 	
 	@Test
@@ -167,7 +188,7 @@ public class TestHabilidadesDePersonaje {
 		Humano h = new Humano("Arthas", new Guerrero(), 1);
 		Humano h2 = new Humano("Jaina", new Hechicero(), 2);
 		Assert.assertEquals(105, h.getEnergia());
-		h.setEnergia(0);
+		h.disminuirEnergia(h.getEnergia());
 		h.habilidadRaza2(h2);
 			Assert.assertEquals(105, h2.getSalud());
 	}
@@ -193,7 +214,7 @@ public class TestHabilidadesDePersonaje {
 		Humano h2 = new Humano("Jaina", new Hechicero(), 2);
 		Assert.assertEquals(15, h2.getAtaque());
 		Assert.assertEquals(15, h.getMagia());
-		h.setEnergia(0);
+		h.disminuirEnergia(h.getEnergia());
 		h.habilidadRaza1(h2);
 		Assert.assertEquals(15, h2.getAtaque());
 	}
