@@ -15,10 +15,10 @@ public class TestHechicero {
 		Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
 		Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 
-		Assert.assertTrue(e.getSalud() == 100);
+		Assert.assertEquals(100, e.getSalud());
 		e.incrementarSalud(65 - e.getSalud());
 //		e.setSalud(65);
-		Assert.assertTrue(e.getSalud() == 65);
+		Assert.assertEquals(65, e.getSalud());
 		h.habilidadCasta2(e);
 		Assert.assertTrue(e.getSalud() > 65);
 	}
@@ -28,19 +28,18 @@ public class TestHechicero {
 		Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
 		Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 
-		Assert.assertTrue(e.getSalud() == 100);
+		Assert.assertEquals(100, e.getSalud());
 		if (h.habilidadCasta1(e))
 			Assert.assertTrue(e.getSalud() < 100);
 		else
-			Assert.assertTrue(e.getSalud() == 100);
+			Assert.assertEquals(100, e.getSalud());
 	}
 
 	@Test
 	public void testRobarEnergia_y_Salud() {
 		Humano h = new Humano("NicoHumano", 100, 100, 55, 20, 50, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
 		Elfo e = new Elfo("NicoElfo", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
-
-		Assert.assertTrue(e.getSalud() == 100);
+		Assert.assertEquals(100, e.getSalud());
 		//h.setSalud(50);
 		//h.setEnergia(50);
 		int enerHum = h.getEnergia();
@@ -62,9 +61,11 @@ public class TestHechicero {
 				Assert.assertTrue(h.getSalud() > salHum);
 			
 		} else {
-			Assert.assertTrue(h.getSalud() == salHum);
+			Assert.assertEquals(salHum, h.getSalud());
+
+			Assert.assertEquals(100, e.getSalud());
 			Assert.assertTrue(h.getEnergia() < enerHum);
-			Assert.assertTrue(e.getSalud() == salElf);
+			Assert.assertEquals(salElf, e.getSalud());
 		}
 	}
 }

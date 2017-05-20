@@ -24,10 +24,11 @@ public class TestAliarCombatir {
 		Humano h2 = new Humano("Lautaro", new Asesino(), 1);
 
 		Assert.assertEquals(105, h2.getSalud());
-		if (h.atacar(h2) != 0)
+		if (h.atacar(h2) != 0) {
 			Assert.assertTrue(h2.getSalud() < 105);
-		else
-			Assert.assertTrue(h2.getSalud() == 105);
+		} else {
+			Assert.assertEquals(105,h2.getSalud());
+		}
 	}
 
 	@Test

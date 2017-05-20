@@ -25,7 +25,7 @@ public class TestSubirNivel {
 		Humano h = new Humano("Nicolas", new Guerrero(), 1);
 		h.ganarExperiencia(300000);
 		if(h.getNivel()!=100)
-			h.incrementarNivel(100 -h.getNivel());
+			h.incrementarNivel(100 - h.getNivel());
 		//h.subirNivel();
 		Assert.assertEquals(100,h.getNivel());
 
@@ -36,7 +36,7 @@ public class TestSubirNivel {
 		Personaje.cargarTablaNivel();
 		Humano h = new Humano("Nicolas", new Guerrero(), 1);
 		if(h.getNivel()!=1)
-			h.incrementarNivel(1 -h.getNivel());
+			h.incrementarNivel(1 - h.getNivel());
 		//Assert.assertTrue(h.getNivel() == 1);
 		h.ganarExperiencia(150);
 		Assert.assertEquals(3,h.getNivel());
