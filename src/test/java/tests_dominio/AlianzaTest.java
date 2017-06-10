@@ -1,14 +1,11 @@
 package tests_dominio;
 
-import java.util.LinkedList;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import dominio.Alianza;
 import dominio.Guerrero;
 import dominio.Humano;
-import dominio.Personaje;
 
 
 public class AlianzaTest {

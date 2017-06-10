@@ -6,9 +6,9 @@ package dominio;
  */
 public abstract class Entidad {
 	/** salud Valor de salud de la Entidad. */
-	private int salud;
+	protected int salud;
 	/** defensa Valor de defensa de la Entidad. */
-	private int defensa;
+	protected int defensa;
 	/** nombre Nombre de la Entidad. */
 	private String nombre;
 	/** fuerza Valor de fuerza de la Entidad. */
@@ -161,7 +161,7 @@ public abstract class Entidad {
 		return random;
 	}
 	public void setRandom(final RandomGenerador rand) {
-		this.random = random;
+		this.random = this.random;
 	}
 
 

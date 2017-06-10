@@ -1,7 +1,4 @@
 package dominio;
-
-import java.util.Random;
-
 public  class RandomGenerador {
 	public  int nextInt(final int val) {
 			return 0;

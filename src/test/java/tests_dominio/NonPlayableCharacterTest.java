@@ -3,12 +3,9 @@ package tests_dominio;
 import org.junit.Assert;
 import org.junit.Test;
 
-import dominio.Asesino;
 import dominio.Elfo;
 import dominio.Guerrero;
-import dominio.Humano;
 import dominio.NonPlayableCharacter;
-import dominio.Personaje;
 import dominio.RandomGeneratorStub;
 
 

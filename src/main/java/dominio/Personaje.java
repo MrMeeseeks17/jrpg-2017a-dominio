@@ -1,6 +1,7 @@
 package dominio;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 /**
  * Clase abstracta que hereda a Elfo, Humano y Orco. Esta clase define las
@@ -760,5 +761,20 @@ extends Entidad implements Peleable, Serializable {
 		int[] aux = {energiaRobada, saludRobada };
 		return aux;
 	}
+
+	public final void actualizarAtributos(final HashMap<String, Number> map) {
+		salud = map.get("salud").intValue();
+		energia = map.get("energia").intValue();
+		defensa = map.get("defensa").intValue();
+		casta.setProbabilidadEvitarDaño(map.get("probEvitarDanio").doubleValue());
+}
+
+	/**
+	 * Devuelve la tabla de niveles.
+	 * @return	Devuelve la tabla de niveles
+	 */
+	public static final  int[] getTablaDeNiveles() {
+		return tablaDeNiveles;
+}
 
 }

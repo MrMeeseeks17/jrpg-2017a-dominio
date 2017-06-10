@@ -1,7 +1,5 @@
 package dominio;
 
-import java.util.Random;
-
 public class RandomGeneratorStub extends RandomGenerador {
 
 	private int valor;
@@ -28,13 +26,15 @@ public class RandomGeneratorStub extends RandomGenerador {
 	}
 
 	public RandomGeneratorStub() {
-		this.valor = new Random().nextInt();
-		this.valorD = new Random().nextDouble();
+		this.valorD= 0;
+		this.valor = 0 ;
+//		this.valor = new Random().nextInt();
+//		this.valorD = new Random().nextDouble();
 	}
 
 	public RandomGeneratorStub(final double valDouble,final int valInt) {
-		this.valorD = valDouble;
-		this.valor = valInt;
+		this.valorD =  0.49;
+		this.valor = 0;
 	}
 
 	@Override

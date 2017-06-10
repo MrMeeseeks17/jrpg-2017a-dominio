@@ -5,7 +5,6 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import dominio.Asesino;
-import dominio.Hechicero;
 import dominio.Humano;
 
 
