@@ -775,6 +775,6 @@ extends Entidad implements Peleable, Serializable {
 	 */
 	public static final  int[] getTablaDeNiveles() {
 		return tablaDeNiveles;
-}
+	}
 
 }

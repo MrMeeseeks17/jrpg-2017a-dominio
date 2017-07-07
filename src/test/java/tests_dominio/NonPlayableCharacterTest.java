@@ -5,12 +5,25 @@ import org.junit.Test;
 
 import dominio.Elfo;
 import dominio.Guerrero;
+import dominio.Hechicero;
+import dominio.Humano;
 import dominio.NonPlayableCharacter;
+import dominio.Personaje;
 import dominio.RandomGeneratorStub;
 
 
 public class NonPlayableCharacterTest {
 
+	@Test
+	public void serRobadoPorHechicero() {
+		NonPlayableCharacter npc = new NonPlayableCharacter("Troll", 1,1);
+		Humano h = new Humano("Nicolas", new Hechicero(), 1);
+		int[] tabla = npc.serRobadoPorHechicero(h);
+
+		Assert.assertEquals(0, tabla[0]);
+		Assert.assertEquals(0, tabla[1]);
+	}
+	
 	@Test
 	public void DificultadesNPCNivelDefault() {
 		NonPlayableCharacter npc = new NonPlayableCharacter("Troll", 1,1);

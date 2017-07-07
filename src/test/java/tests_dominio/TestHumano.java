@@ -35,4 +35,47 @@ public class TestHumano {
 			Assert.assertEquals(90,h.getEnergia());
 		}
 	}
+	
+	
+	@Test
+	public void TestDisminucionEnergia() {
+		Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
+		Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
+
+		h.habilidadRaza2(e);
+		h.habilidadRaza1(e);
+		h.habilidadRaza2(e);
+		h.habilidadRaza1(e);
+		h.habilidadRaza2(e);
+		h.habilidadRaza1(e);
+		h.habilidadRaza2(e);
+		h.habilidadRaza1(e);
+		h.habilidadRaza2(e);
+		h.habilidadRaza1(e);
+		h.habilidadRaza2(e);
+		h.habilidadRaza1(e);
+		Assert.assertEquals(1,h.getNivel());
+		
+	}
+	
+	@Test
+	public void TestSuperHumano() {
+		Humano h = new Humano("Nico", new Hechicero(0.2, 0.3, 1.5),1);
+		Elfo e = new Elfo("Nico2", new Hechicero(0.2, 0.3, 1.5),1);
+
+		h.habilidadRaza2(e);
+		h.habilidadRaza1(e);
+		h.habilidadRaza2(e);
+		h.habilidadRaza1(e);
+		h.habilidadRaza2(e);
+		h.habilidadRaza1(e);
+		h.habilidadRaza2(e);
+		h.habilidadRaza1(e);
+		h.habilidadRaza2(e);
+		h.habilidadRaza1(e);
+		h.habilidadRaza2(e);
+		h.habilidadRaza1(e);
+		Assert.assertEquals(1,h.getNivel());
+		
+	}
 }

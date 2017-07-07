@@ -4,8 +4,15 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import dominio.RandomGenerador;
+import dominio.RandomGeneratorStub;
 
 public class RandomGeneradorTest {
+	
+	@Test
+	public void ConstructorTest() {
+		RandomGeneratorStub rg = new RandomGeneratorStub((double)0);
+		Assert.assertEquals(0.5, rg.getValorD(),0);
+	}
 	
 	@Test
 	public void nextIntTest() {
