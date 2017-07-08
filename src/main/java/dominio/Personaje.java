@@ -1,4 +1,4 @@
-package dominio;
+	package dominio;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -51,6 +51,18 @@ extends Entidad implements Peleable, Serializable {
 	 */
 	private String[] habilidadesRaza;
 
+	/**
+	 * Atributos HASH
+	 */
+	public static final String ATTR_ENERGIA = "energia";
+	public static final String ATTR_DESTREZA = "destreza";
+	public static final String ATTR_INTELIGENCIA = "inteligencia";
+	public static final String ATTR_CASTA = "casta";
+	public static final String ATTR_EXPERIENCIA = "experiencia";
+	public static final String ATTR_IDPERSONAJE = "idpersonaje";
+	public static final String ATTR_ENERGIATOPE = "energiatope";
+	public static final String ATTR_SALUDTOPE = "saludtope";
+	
 	/**
 	 * Setter de Habilidades de raza.
 	 * @param habilRaza Devuelvelas habilidades de la raza a
@@ -775,6 +787,23 @@ extends Entidad implements Peleable, Serializable {
 	 */
 	public static final  int[] getTablaDeNiveles() {
 		return tablaDeNiveles;
+	}
+	
+	/**
+	 * Devuelve hashmap con datos.
+	 * @return datos en hashmap
+	 */
+	public HashMap<String, Object> getTodo() {
+		HashMap<String, Object> datos = super.getTodo();
+		datos.put(ATTR_ENERGIA, getEnergia());
+		datos.put(ATTR_DESTREZA, getDestreza());
+		datos.put(ATTR_INTELIGENCIA, getInteligencia());
+		datos.put(ATTR_CASTA, getCasta());
+		datos.put(ATTR_EXPERIENCIA, getExperiencia());
+		datos.put(ATTR_IDPERSONAJE, getIdPersonaje());
+		datos.put(ATTR_ENERGIATOPE, getEnergiaTope());
+		datos.put(ATTR_SALUDTOPE, getSaludTope());
+		return datos;
 	}
 
 }

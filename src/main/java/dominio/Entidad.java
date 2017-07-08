@@ -1,10 +1,21 @@
 package dominio;
 
+import java.util.HashMap;
+
 /**
  * Entidad: Clase abstracta que hereda a Personaje y NonPlayableCharacter.
  * Define los atributos y métodos compartidos por ambas clases.
  */
 public abstract class Entidad {
+	/**
+	 * Atributos HASH
+	 */
+	public static final String ATTR_SALUD = "salud";
+	public static final String ATTR_FUERZA = "fuerza";
+	public static final String ATTR_DEFENSA = "defensa";
+	public static final String ATTR_NOMBRE = "nombre";
+	public static final String ATTR_NIVEL = "nivel";
+	
 	/** salud Valor de salud de la Entidad. */
 	protected int salud;
 	/** defensa Valor de defensa de la Entidad. */
@@ -175,4 +186,46 @@ public abstract class Entidad {
 	 * @return Int con la cantidad de daño realizado
 	 */
 	public abstract int atacar(Peleable atacado);
+
+	/**
+	 * Actualizar datos desde hashmap
+	 * @param datos salud,fuerza,defensa,nombre,nivel
+	 */
+	public void actualizar(final HashMap<String, Object> datos) {
+		setSalud((Integer) datos.get(ATTR_SALUD));
+		setFuerza((Integer) datos.get(ATTR_FUERZA));
+		setDefensa((Integer) datos.get(ATTR_DEFENSA));
+		setNombre((String) datos.get(ATTR_NOMBRE));
+		setNivel((Integer) datos.get(ATTR_NIVEL));
+	}
+
+	public void setSalud(int salud) {
+		this.salud = salud;
+	}
+
+	public void setDefensa(int defensa) {
+		this.defensa = defensa;
+	}
+
+	public void setFuerza(int fuerza) {
+		this.fuerza = fuerza;
+	}
+
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
+	}
+
+	/**
+	 * Devuelve hashmap con datos.
+	 * @return datos en hashmap
+	 */
+	public HashMap<String, Object> getTodo() {
+		HashMap<String, Object> datos = new HashMap<>();
+		datos.put(ATTR_SALUD, getSalud());
+		datos.put(ATTR_FUERZA, getFuerza());
+		datos.put(ATTR_DEFENSA, getDefensa());
+		datos.put(ATTR_NOMBRE, getNombre());
+		datos.put(ATTR_NIVEL, getNivel());
+		return datos;
+	}
 }
